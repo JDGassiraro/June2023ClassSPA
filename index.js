@@ -90,17 +90,19 @@ case "Pizza":
     }
   });
 
-router
-.on({
-  "/": () => render(store.Home),
-  ":view": (params) => {
-    let view = capitalize(params.data.view);
-    if (store.hasOwnProperty(view)) {
-      render(store[view]);
-    } else {
-      render(store.Viewnotfound);
-      console.log(`View ${view} not defined`);
-    }
-  },
-})
-.resolve();
+  router.on(
+
+    {
+      "/": () => render(),
+      ":view": (params) => {
+                let view = capitalize(params.data.view);
+                if (view in store) {
+                  render(store[view]);
+                } else {
+                  console.log(`View ${view} not defined`);
+                  render(store.Viewnotfound);
+                }
+              },
+      },
+
+).resolve();
