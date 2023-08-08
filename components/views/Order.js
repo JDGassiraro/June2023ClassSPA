@@ -80,7 +80,7 @@ export default () => html`<section id="order">
         type="hidden"
         name="customer"
         id="customer"
-        value="Anonymous Customer"
+        value="Marcus Meepers"
       />
       <input type="submit" name="submit" value="Submit Pizza" />
     </form>
